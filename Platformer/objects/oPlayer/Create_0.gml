@@ -16,7 +16,7 @@ max_vsp = 10;
 
 // jumps
 jump_spd = -7;
-coyote_timer_initial = 5;
+coyote_timer_initial = 10;
 coyote_timer = coyote_timer_initial;
 min_jump_spd = -2;
 
