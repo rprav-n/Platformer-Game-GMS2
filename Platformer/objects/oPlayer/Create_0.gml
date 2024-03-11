@@ -11,11 +11,11 @@ walk_spd = 1.5;
 max_walk_spd = 3;
 accel = 0.4;
 decel = 0.3;
-grav = 0.5;
+grav = 0.4;
 max_vsp = 10;
 
 // jumps
-jump_spd = -7;
+jump_spd = -6;
 coyote_timer_initial = 10;
 coyote_timer = coyote_timer_initial;
 min_jump_spd = -2;
