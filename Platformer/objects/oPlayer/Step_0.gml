@@ -1,8 +1,5 @@
 // get inputs
-left = keyboard_check(vk_left) || keyboard_check(ord("A"));
-right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-jump = keyboard_check_pressed(vk_space);
-jump_held = keyboard_check(vk_space);
+input();
 
 // calculate movment
 var _dir = right - left;
@@ -10,10 +7,31 @@ hsp += _dir * walk_spd * accel;
 
 if (_dir == 0) {
 	hsp = lerp(hsp, 0, decel);
-	if (hsp < 0.1) hsp = 0;
+	if (abs(hsp) < 0.1) hsp = 0;
 }
 
 hsp = clamp(hsp, -max_walk_spd, max_walk_spd);
+
+// dashing
+if (dash_cooldown > 0) {
+	dash_cooldown -= 1;
+}
+if (dash && dash_cooldown <= 0 && can_dash) {
+	is_dashing = true;
+	can_dash = false;
+	dash_cooldown = dash_cooldown_initial;
+}
+
+if (is_dashing) {
+	if (dash_time > 0) {
+		dash_time -= 1;
+		hsp = lerp(hsp, dash_spd*facing, accel);
+	} else {
+		is_dashing = false;
+		can_dash = true;
+		dash_time = dash_time_initial;
+	}
+}
 
 vsp += grav;
 
@@ -59,7 +77,10 @@ if (on_ground) {
 
 
 // animations
-if (hsp != 0) image_xscale = sign(hsp) * -1;
+if (hsp != 0) {
+	image_xscale = sign(hsp) * -1
+	facing = sign(hsp);
+};
 
 
 if (!on_ground) {

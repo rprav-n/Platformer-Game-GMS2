@@ -3,6 +3,7 @@ left = 0;
 right = 0;
 jump = 0;
 jump_held = 0;
+dash = 0;
 
 // speed
 hsp = 0;
@@ -22,3 +23,30 @@ min_jump_spd = -2;
 
 // status
 on_ground = false;
+facing = -1; // facing left by default
+
+// dash
+can_dash = true;
+dash_cooldown_initial = 60;
+dash_cooldown = 0;
+dash_time_initial = 10;
+dash_time = dash_time_initial;
+dash_spd = 10;
+is_dashing = false;
+
+enum STATE {
+	IDLE,
+	WALK,
+	AIR,
+	DASH
+};
+
+state = STATE.IDLE;
+
+
+
+
+
+
+
+
