@@ -23,6 +23,7 @@ if (dash && dash_cooldown <= 0 && can_dash) {
 }
 
 if (is_dashing) {
+	vsp = 0;
 	if (dash_time > 0) {
 		dash_time -= 1;
 		hsp = lerp(hsp, dash_spd*facing, accel);
@@ -31,9 +32,11 @@ if (is_dashing) {
 		can_dash = true;
 		dash_time = dash_time_initial;
 	}
+} else {
+	vsp += grav;
 }
 
-vsp += grav;
+
 
 if (coyote_timer > 0) {
 	coyote_timer -= 1;
