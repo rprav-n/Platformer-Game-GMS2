@@ -23,6 +23,7 @@ if (dash && dash_cooldown <= 0 && can_dash) {
 }
 
 if (is_dashing) {
+	part_particles_create(oDash.particle_system, x, y, oDash.particle_player_fade, 1);
 	vsp = 0;
 	if (dash_time > 0) {
 		dash_time -= 1;
