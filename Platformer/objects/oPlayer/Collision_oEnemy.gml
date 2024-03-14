@@ -3,5 +3,5 @@ if (is_dashing) {
 		instance_destroy();
 	}
 } else {
-	game_restart();
+	fadeout();
 }
