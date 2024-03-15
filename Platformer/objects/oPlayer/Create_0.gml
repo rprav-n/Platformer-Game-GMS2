@@ -20,6 +20,7 @@ jump_spd = -6;
 coyote_timer_initial = 10;
 coyote_timer = coyote_timer_initial;
 min_jump_spd = -2;
+can_jump = true;
 
 // status
 on_ground = false;

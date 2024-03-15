@@ -43,7 +43,11 @@ if (coyote_timer > 0) {
 	coyote_timer -= 1;
 }
 
-if (jump && (on_ground || coyote_timer > 0)) {
+if (jump && (on_ground || coyote_timer > 0 || can_jump = true)) {
+	coyote_timer = 0;
+	if (!on_ground) {
+		can_jump = false;
+	}
 	vsp = jump_spd;
 }
 
@@ -77,6 +81,7 @@ y += vsp;
 on_ground = place_meeting(x, y+1, oBlock);
 if (on_ground) {
 	coyote_timer = coyote_timer_initial;
+	can_jump = true;
 }
 
 
