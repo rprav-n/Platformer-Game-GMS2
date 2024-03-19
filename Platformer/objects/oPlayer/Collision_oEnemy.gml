@@ -3,5 +3,6 @@ if (is_dashing) {
 		instance_destroy();
 	}
 } else {
-	fadeout();
+	slideTransition(TRANS_MODE.RESTART);
+	instance_destroy();
 }

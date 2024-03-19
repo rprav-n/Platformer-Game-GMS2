@@ -1,0 +1,53 @@
+if (mode != TRANS_MODE.OFF) {
+	if (mode == TRANS_MODE.INTRO) {
+		percent = lerp(percent, 0, spd);
+	} else {
+		percent = lerp(percent, 1, spd);
+	}
+	
+	if (percent == 0 || percent == 1) {
+		switch (mode) {
+			case TRANS_MODE.INTRO: {
+				mode = TRANS_MODE.OFF;
+				break;
+			}
+			case TRANS_MODE.NEXT: {
+				mode = TRANS_MODE.INTRO;
+				room_goto_next();
+				break;
+			}
+			case TRANS_MODE.GOTO: {
+				mode = TRANS_MODE.INTRO;
+				room_goto(target_room);
+				break;
+			}
+			case TRANS_MODE.RESTART: {
+				game_restart();
+				break;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
