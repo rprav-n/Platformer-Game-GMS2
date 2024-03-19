@@ -8,6 +8,7 @@ function fadeout() {
 			h = 0;
 			h2 = full_h;
 			set_fadeout();
+			depth = -100;
 		}
 	}
 }
